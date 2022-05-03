@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Behavi\" />
+    <Folder Include="Structural\" />
   </ItemGroup>
 
 </Project>
