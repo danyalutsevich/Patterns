@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace Patterns.Behavioral.Strategy
             MeanCalculator.Strategies.Add(new MeanArithmetics());
             MeanCalculator.Strategies.Add(new MeanHarmonic());
             MeanCalculator.Strategies.Add(new MeanGeometric());
+            MeanCalculator.Strategies.Add(new MeanSquare());
         }
 
         public static void Compute()
@@ -45,7 +47,9 @@ namespace Patterns.Behavioral.Strategy
             }
 
             Console.WriteLine("Choose strategy:");
+
             int strategy = int.Parse(Console.ReadLine());
+
             data.Clear();
 
             Console.WriteLine("Enter data:");
@@ -57,7 +61,7 @@ namespace Patterns.Behavioral.Strategy
             do
             {
                 key = Console.ReadKey(true);
-                
+
                 if (key.KeyChar >= '0' && key.KeyChar <= '9')
                 {
                     Console.Write(key.KeyChar);
@@ -71,17 +75,11 @@ namespace Patterns.Behavioral.Strategy
                 }
 
             } while (key.Key != ConsoleKey.Escape);
+
             Console.WriteLine();
             Console.WriteLine("Mean:");
 
-            foreach (var mean in MeanCalculator.GetAll(data))
-            {
-
-                Console.WriteLine(mean);
-
-            }
-
-            Console.WriteLine($"Greatest Mean: {MeanCalculator.GetGreatest(data)}");
+            Console.WriteLine(MeanCalculator.Strategies[strategy - 1].GetMeanValue(data));
 
         }
 
