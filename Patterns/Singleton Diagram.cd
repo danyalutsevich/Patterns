@@ -1,22 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Patterns.Creational.Singleton">
-    <Position X="8" Y="2.5" Width="1.5" />
+  <Class Name="Patterns.Behavioral.Strategy.MeanArithmetics">
+    <Position X="5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAABABAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Creational\Singleton\Singleton.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Behavioral\Strategy\MeanArithmetics.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Patterns.Behavioral.Strategy.Strategy">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAQAAAAAAE=</HashCode>
+      <FileName>Behavioral\Strategy\Strategy.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Patterns.Program">
-    <Position X="10.25" Y="2.75" Width="1.5" />
+  <Interface Name="Patterns.Behavioral.Strategy.IMeanValue" Collapsed="true">
+    <Position X="4.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAABAAAAAA=</HashCode>
-      <FileName>Program.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Behavioral\Strategy\IMeanValue.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="System.Object" Collapsed="true">
-    <Position X="10.25" Y="1.5" Width="1.5" />
-    <TypeIdentifier />
-  </Class>
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
