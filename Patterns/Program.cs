@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace Patterns
 {
@@ -30,13 +31,21 @@ namespace Patterns
 
             #region Decorator
 
-            Structural.Decorator.Decorator.Show();
+            //Structural.Decorator.Decorator.Show();
 
             #endregion
 
-            //WhatYouCanAddToCoffee();
+            #region Factory
+
+            Creational.Factory.CryptoFactory.Show();
+
+            
+            
+            #endregion
 
         }
+        
+       
 
         // creates list of ingredients that can be added to coffee
         private static List<string> WhatYouCanAddToCoffee()
