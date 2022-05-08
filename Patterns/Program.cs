@@ -37,15 +37,25 @@ namespace Patterns
 
             #region Factory
 
-            Creational.Factory.CryptoFactory.Show();
+            //Creational.Factory.CryptoFactory.Show();
 
-            
-            
+            #endregion
+
+            #region Factory Method
+
+            //Creational.Factory.FactoryMethod.Show();
+
+            #endregion
+
+            #region AbstractFactory
+
+            Creational.Factory.AbstractFactory.Show();
+
             #endregion
 
         }
-        
-       
+
+
 
         // creates list of ingredients that can be added to coffee
         private static List<string> WhatYouCanAddToCoffee()
