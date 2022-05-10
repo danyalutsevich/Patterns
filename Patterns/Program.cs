@@ -49,7 +49,13 @@ namespace Patterns
 
             #region AbstractFactory
 
-            Creational.Factory.AbstractFactory.Show();
+            //Creational.Factory.AbstractFactory.Show();
+
+            #endregion
+
+            #region Observer
+
+            Patterns.Behavioral.Observer.ObserverDemo.Show();
 
             #endregion
 
