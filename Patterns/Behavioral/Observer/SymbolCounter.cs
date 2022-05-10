@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Patterns.Behavioral.Observer
 {
-    class SymbolCounter : Observer
+    class SymbolCounter : IObserver
     {
 
         public void Update(object state)

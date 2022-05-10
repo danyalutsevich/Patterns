@@ -9,10 +9,10 @@ namespace Patterns.Behavioral.Observer
     abstract class Subject
     {
 
-        private List<Observer> observers = new List<Observer>();
+        private List<IObserver> observers = new List<IObserver>();
         private object state;
 
-        public void Subscribe(Observer observer)
+        public void Subscribe(IObserver observer)
         {
             if (!observers.Contains(observer))
             {
@@ -20,7 +20,7 @@ namespace Patterns.Behavioral.Observer
             }
         }
 
-        public void Unsubscribe(Observer observer)
+        public void Unsubscribe(IObserver observer)
         {
             observers.Remove(observer);
         }
@@ -32,7 +32,7 @@ namespace Patterns.Behavioral.Observer
                 arg = state;
             }
 
-            foreach (Observer observer in observers)
+            foreach (IObserver observer in observers)
             {
                 observer.Update(arg);
             }

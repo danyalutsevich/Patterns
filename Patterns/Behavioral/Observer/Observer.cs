@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Patterns.Behavioral.Observer
 {
-    interface Observer
+    interface IObserver
     {
         void Update(object e);
     }

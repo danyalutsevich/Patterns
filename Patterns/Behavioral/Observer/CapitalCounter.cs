@@ -2,34 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Patterns.Behavioral.Observer
 {
-    class WordSearcher : IObserver
+    class CapitalCounter : IObserver
     {
-
-        List<string> WordsToSearch;
-
-        public WordSearcher()
-        {
-            WordsToSearch = new List<string>() { "Max" };
-        }
 
         public void Update(object text)
         {
             if (text is string str)
             {
-
-                foreach (var word in WordsToSearch)
+                int capitalCount = 0;
+                for (int i = 0; i < str.Length; i++)
                 {
-                    int foundWords = Regex.Matches(str, $"{word}").Count;
-                    if (foundWords > 0)
+                    if (char.IsUpper(str[i]))
                     {
-                        Console.WriteLine($"Found word: {word} {foundWords} times");
+                        capitalCount++;
                     }
                 }
+                Console.WriteLine($"Capital count: {capitalCount}");
             }
             else
             {
@@ -37,6 +29,6 @@ namespace Patterns.Behavioral.Observer
             }
 
         }
-    }
 
+    }
 }
