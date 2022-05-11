@@ -47,6 +47,25 @@ Strategy
 2) получаатели
 
 
+Builder - порождающий паттерн создающий обьекты по шаблону
+используется для производства обьектов у который много различных настроек
+противопоставляется антипаттерну "телескоп" (new object(int par1,int par2, string par3, .... int parN))
+
+
+создается Builder и задается настройки для него
+builder = new();
+
+
+builder.SetPar1(2123);
+builder.SetPar5(2127);
+builder.SetPar6(2128);
+
+builder.Build();
+obj = new (builder);
+
+
+
+
 
 
 

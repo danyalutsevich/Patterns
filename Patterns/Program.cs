@@ -55,7 +55,13 @@ namespace Patterns
 
             #region Observer
 
-            Patterns.Behavioral.Observer.ObserverDemo.Show();
+            //Patterns.Behavioral.Observer.ObserverDemo.Show();
+
+            #endregion
+
+            #region Builder
+
+            Patterns.Creational.Builder.BuilderDemo.Show();
 
             #endregion
 
