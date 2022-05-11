@@ -28,8 +28,6 @@ namespace Patterns.Creational.Builder
             Drink drink2 = db.Build();
 
             Console.WriteLine(drink2.Description);
-
-
         }
     }
 
