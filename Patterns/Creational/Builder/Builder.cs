@@ -13,21 +13,23 @@ namespace Patterns.Creational.Builder
             DrinkBuilder db = new CoffeeBuilder();
 
             db.SetSugar()
-            .SetChocko()
-            .SetMilk();
-
-            Drink drink = db.Build();
-
+              .SetChocko()
+              .SetMilk();
+            
+            DrinkDirector drinkDirector = new DrinkDirector(db);
+            Drink drink = drinkDirector.MakeAmericano();
             Console.WriteLine(drink.Description);
 
+
             db = new CocoaBuilder();
-
             db.SetSugar()
-                .SetChocko()
-                .SetMilk().SetSyrup();
-            Drink drink2 = db.Build();
+              .SetChocko()
+              .SetMilk().SetSyrup();
 
+            drinkDirector = new DrinkDirector(db);
+            Drink drink2 = drinkDirector.MakeEspresso();
             Console.WriteLine(drink2.Description);
+
         }
     }
 
@@ -79,7 +81,7 @@ namespace Patterns.Creational.Builder
         {
             this.drink = drink;
         }
-        
+
         private Drink drink;
 
         public DrinkBuilder SetMilk()
@@ -105,7 +107,7 @@ namespace Patterns.Creational.Builder
         public DrinkBuilder SetChocko()
         {
             drink.HasChocko = true;
-            return this;            
+            return this;
         }
         public DrinkBuilder SetCinnamon()
         {
@@ -141,6 +143,7 @@ namespace Patterns.Creational.Builder
                 if (HasChocko) { sb.Append("with chocko "); }
                 if (HasCinnamon) { sb.Append("with cinnamon "); }
                 if (HasIce) { sb.Append("with ice "); }
+                if (Feature != string.Empty) { sb.Append($"{Feature} "); }
 
                 return sb.ToString();
             }
@@ -154,10 +157,36 @@ namespace Patterns.Creational.Builder
         public bool HasCinnamon { get; set; }
         public bool HasIce { get; set; }
 
+        public string Feature { get; set; }
+
         public Drink(string Name)
         {
             this.Name = Name;
+            Feature = string.Empty;
         }
     }
 
+    class DrinkDirector
+    {
+        DrinkBuilder drinkBuilder;
+
+        public DrinkDirector(DrinkBuilder drinkBuilder)
+        {
+            this.drinkBuilder = drinkBuilder;
+        }
+
+        public Drink MakeEspresso()
+        {
+            Drink drink = drinkBuilder.Build();
+            drink.Feature = "Espresso";
+            return drink;
+        }
+
+        public Drink MakeAmericano()
+        {
+            Drink drink = drinkBuilder.Build();
+            drink.Feature = "Americano";
+            return drink;
+        }
+    }
 }

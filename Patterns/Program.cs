@@ -61,7 +61,13 @@ namespace Patterns
 
             #region Builder
 
-            Patterns.Creational.Builder.BuilderDemo.Show();
+            //Patterns.Creational.Builder.BuilderDemo.Show();
+
+            #endregion
+
+            #region Bridge
+
+            Patterns.Structural.Proxy.ProxyDemo.Show();
 
             #endregion
 

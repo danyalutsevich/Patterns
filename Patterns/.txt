@@ -64,8 +64,13 @@ builder.Build();
 obj = new (builder);
 
 
+Мост - структурный шаблон заменяющий наследование на агрегацию
 
 
+1 Без паттерна есть класс Figure и его наследники Rectangle : Figure и Circle : Figure
+  появляется необходимость рисовать фигуры с контуром и заполнееные RectangleStroke RectangleFill CircleStroke CircleFill RectanleFillStroke CircleFillStroke
+
+2 С паттерном - создаем фигуру как контейнер, а в ней коллекцию компонент
 
 
 
