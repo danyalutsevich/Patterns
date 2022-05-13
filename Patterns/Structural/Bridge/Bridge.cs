@@ -22,12 +22,22 @@ namespace Patterns.Structural.Bridge
 
             Console.WriteLine();
             
-            Figure f = new Figure()
+            figure = new Figure()
                 .AddComponent(new Shape("Void"))
                 .AddComponent(new Stroke("Void", 0))
                 .AddComponent(new Fill("Void"));
+
+            figure.Render();
             
-            f.Render();
+            Console.WriteLine();
+
+            figure = new Figure()
+                .AddComponent(new Shape("Circle"))
+                .AddComponent(new Stroke("White", 2))
+                .AddComponent(new Fill("Void"))
+                .AddComponent(new Shadow(4, 4, 10, "Red"));
+            figure.Render();
+
         }
     }
 
@@ -116,4 +126,26 @@ namespace Patterns.Structural.Bridge
         }
 
     }
+    
+    class Shadow : IComponent
+    {
+        private string color;
+        int XOffset;
+        int YOffset;
+        int blurRadius;
+
+        public Shadow(int XOffset, int YOffset, int blurRadius, string color)
+        {
+            this.XOffset = XOffset;
+            this.YOffset = YOffset;
+            this.blurRadius = blurRadius;
+            this.color = color;
+        }
+
+        public void Render()
+        {
+            Console.Write($" Shadow XOffset {XOffset} YOffset {YOffset} blurRadius {blurRadius} color {color}");
+        }
+    }
+
 }

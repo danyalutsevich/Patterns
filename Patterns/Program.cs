@@ -67,7 +67,13 @@ namespace Patterns
 
             #region Bridge
 
-            Patterns.Structural.Proxy.ProxyDemo.Show();
+            Patterns.Structural.Bridge.BridgeDemo.Show();
+
+            #endregion
+
+            #region Proxy
+
+            //Patterns.Structural.Proxy.ProxyDemo.Show();
 
             #endregion
 
