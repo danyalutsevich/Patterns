@@ -124,6 +124,7 @@ namespace Patterns.Structural.Composite
         public void TakeResolution(string resolution)
         {
             Console.WriteLine($" {this.GetType().Name} take {resolution}");
+
             foreach (var member in Members)
             {
                 Console.Write("✅");
@@ -134,8 +135,6 @@ namespace Patterns.Structural.Composite
                 }
 
                 member.TakeResolution(resolution);
-
-
             }
         }
     }
