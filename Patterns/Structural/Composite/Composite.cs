@@ -16,7 +16,7 @@ namespace Patterns.Structural.Composite
 
             firm.Members.Add(new FinDirector());
             firm.Members.Add(new ExeDirector());
-            
+
 
             firm.MakeResolution("Bake a cookie");
 
@@ -77,11 +77,11 @@ namespace Patterns.Structural.Composite
             Console.WriteLine($"Firm make resolution {resolution}");
             foreach (var member in Members)
             {
-                if(member is CompositeMember)
+                if (member is CompositeMember)
                 {
                     Console.Write($" [{(member as CompositeMember).Members.Count}] ");
                 }
-                
+
                 member.TakeResolution(resolution);
             }
         }
@@ -100,16 +100,16 @@ namespace Patterns.Structural.Composite
 
         }
 
-        public override void TakeResolution(string resolution)
-        {
-            Console.WriteLine($"LabourUnion take {resolution}");
+        //public override void TakeResolution(string resolution)
+        //{
+        //    Console.WriteLine($"LabourUnion take {resolution}");
 
-            foreach (var member in Members)
-            {
-                Console.Write("✅");
-                member.TakeResolution(resolution);
-            }
-        }
+        //    foreach (var member in Members)
+        //    {
+        //        Console.Write("✅");
+        //        member.TakeResolution(resolution);
+        //    }
+        //}
     }
 
     abstract class CompositeMember : IMember
@@ -121,7 +121,23 @@ namespace Patterns.Structural.Composite
             Members = new List<IMember>();
         }
 
-        public abstract void TakeResolution(string resolution);
+        public void TakeResolution(string resolution)
+        {
+            Console.WriteLine($" {this.GetType().Name} take {resolution}");
+            foreach (var member in Members)
+            {
+                Console.Write("✅");
+
+                if (member is CompositeMember && (member as CompositeMember).Members.Count > 0)
+                {
+                    Console.Write($"[{(member as CompositeMember).Members.Count}]");
+                }
+
+                member.TakeResolution(resolution);
+
+
+            }
+        }
     }
 
     class BakersDelegate : IMember
@@ -150,10 +166,10 @@ namespace Patterns.Structural.Composite
 
     class TaxiCompany : CompositeMember, IDisposable
     {
-        public override void TakeResolution(string resolution)
-        {
-            Console.WriteLine($"TaxiCompany take {resolution}");
-        }
+        //public override void TakeResolution(string resolution)
+        //{
+        //    Console.WriteLine($"TaxiCompany take {resolution}");
+        //}
 
         public void Dispose()
         {
@@ -169,11 +185,11 @@ namespace Patterns.Structural.Composite
             Members = new List<IMember>();
             Members.Add(new TaxiCompany());
         }
-        
-        public override void TakeResolution(string resolution)
-        {
-            Console.WriteLine($"Italy  {resolution}");
-        }
+
+        //public override void TakeResolution(string resolution)
+        //{
+        //    Console.WriteLine($"Italy  {resolution}");
+        //}
     }
 
     class KhersonDelegate : IMember
@@ -201,24 +217,10 @@ namespace Patterns.Structural.Composite
             Members.Add(new KhersonDelegate());
             Members.Add(new MykolaivDelegate());
             Members.Add(new OdessaDelegate());
-            
+
         }
 
-        public override void TakeResolution(string resolution)
-        {
-            Console.WriteLine($"DivisionsDelegate take {resolution}");
-            foreach (var member in Members)
-            {
-                Console.Write("✅");
 
-                if (member is CompositeMember)
-                {
-                    Console.Write($" [{(member as CompositeMember).Members.Count}] ");
-                }
-
-                    member.TakeResolution(resolution);
-            }
-        }
 
     }
 
@@ -232,15 +234,15 @@ namespace Patterns.Structural.Composite
             Members.Add(new ZatokaDelegate());
         }
 
-        public override void TakeResolution(string resolution)
-        {
-            Console.WriteLine($"Odessa take {resolution}");
-            foreach (var member in Members)
-            {
-                Console.Write(" ✅");
-                member.TakeResolution(resolution);
-            }
-        }
+        //public override void TakeResolution(string resolution)
+        //{
+        //    Console.WriteLine($"Odessa take {resolution}");
+        //    foreach (var member in Members)
+        //    {
+        //        Console.Write(" ✅");
+        //        member.TakeResolution(resolution);
+        //    }
+        //}
     }
 
     class IzmailDelegate : CompositeMember
@@ -250,15 +252,15 @@ namespace Patterns.Structural.Composite
             Members = new List<IMember>();
         }
 
-        public override void TakeResolution(string resolution)
-        {
-            Console.WriteLine($"Izmail take {resolution}");
-            foreach (var member in Members)
-            {
-                Console.Write("✅");
-                member.TakeResolution(resolution);
-            }
-        }
+        //public override void TakeResolution(string resolution)
+        //{
+        //    Console.WriteLine($"Izmail take {resolution}");
+        //    foreach (var member in Members)
+        //    {
+        //        Console.Write("✅");
+        //        member.TakeResolution(resolution);
+        //    }
+        //}
     }
 
     class YuzhneDelegate : CompositeMember
@@ -268,15 +270,15 @@ namespace Patterns.Structural.Composite
             Members = new List<IMember>();
         }
 
-        public override void TakeResolution(string resolution)
-        {
-            Console.WriteLine($"Yuzhne take {resolution}");
-            foreach (var member in Members)
-            {
-                Console.Write("✅");
-                member.TakeResolution(resolution);
-            }
-        }
+        //public override void TakeResolution(string resolution)
+        //{
+        //    Console.WriteLine($"Yuzhne take {resolution}");
+        //    foreach (var member in Members)
+        //    {
+        //        Console.Write("✅");
+        //        member.TakeResolution(resolution);
+        //    }
+        //}
     }
 
     class ZatokaDelegate : CompositeMember
@@ -286,18 +288,18 @@ namespace Patterns.Structural.Composite
             Members = new List<IMember>();
         }
 
-        public override void TakeResolution(string resolution)
-        {
-            Console.WriteLine($"Zatoka take {resolution}");
-            foreach (var member in Members)
-            {
-                Console.Write("✅");
-                member.TakeResolution(resolution);
-            }
-        }
+        //public override void TakeResolution(string resolution)
+        //{
+        //    Console.WriteLine($"Zatoka take {resolution}");
+        //    foreach (var member in Members)
+        //    {
+        //        Console.Write("✅");
+        //        member.TakeResolution(resolution);
+        //    }
+        //}
     }
 
-    
+
 
 
 }
