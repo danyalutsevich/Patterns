@@ -11,6 +11,9 @@ namespace Patterns
 
         static void Main(string[] args)
         {
+
+            Console.OutputEncoding = System.Text.Encoding.UTF8;      
+            
             #region Singleton
 
             //// private ctor blocks creation
@@ -67,13 +70,19 @@ namespace Patterns
 
             #region Bridge
 
-            Patterns.Structural.Bridge.BridgeDemo.Show();
+            // Patterns.Structural.Bridge.BridgeDemo.Show();
 
             #endregion
 
             #region Proxy
 
-            //Patterns.Structural.Proxy.ProxyDemo.Show();
+            // Patterns.Structural.Proxy.ProxyDemo.Show();
+
+            #endregion
+
+            #region Composite
+
+            Patterns.Structural.Composite.CompositeDemo.Show();
 
             #endregion
 
