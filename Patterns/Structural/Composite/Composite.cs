@@ -97,33 +97,32 @@ namespace Patterns.Structural.Composite
             Members.Add(new BakersDelegate());
             Members.Add(new CleaningsDelegate());
             Members.Add(new LoadersDelegate());
-
         }
-
-        //public override void TakeResolution(string resolution)
-        //{
-        //    Console.WriteLine($"LabourUnion take {resolution}");
-
-        //    foreach (var member in Members)
-        //    {
-        //        Console.Write("✅");
-        //        member.TakeResolution(resolution);
-        //    }
-        //}
     }
 
     abstract class CompositeMember : IMember
     {
         public List<IMember> Members { get; set; }
 
+
         public CompositeMember()
         {
             Members = new List<IMember>();
         }
 
+        public static int Count { get; set; }
+        
         public void TakeResolution(string resolution)
         {
-            Console.WriteLine($" {this.GetType().Name} take {resolution}");
+            Count++;
+
+            for (int i = 0; i < Count; i++)
+            {
+                Console.Write(" ");
+            }
+
+
+            Console.WriteLine($"{this.GetType().Name} take {resolution}");
 
             foreach (var member in Members)
             {
@@ -136,6 +135,7 @@ namespace Patterns.Structural.Composite
 
                 member.TakeResolution(resolution);
             }
+            Count--;
         }
     }
 
@@ -165,16 +165,10 @@ namespace Patterns.Structural.Composite
 
     class TaxiCompany : CompositeMember, IDisposable
     {
-        //public override void TakeResolution(string resolution)
-        //{
-        //    Console.WriteLine($"TaxiCompany take {resolution}");
-        //}
-
         public void Dispose()
         {
             Console.WriteLine("TaxiCompany is disposed from Italy");
         }
-
     }
 
     class Italy : CompositeMember
@@ -184,11 +178,6 @@ namespace Patterns.Structural.Composite
             Members = new List<IMember>();
             Members.Add(new TaxiCompany());
         }
-
-        //public override void TakeResolution(string resolution)
-        //{
-        //    Console.WriteLine($"Italy  {resolution}");
-        //}
     }
 
     class KhersonDelegate : IMember
@@ -209,18 +198,13 @@ namespace Patterns.Structural.Composite
 
     class DivisionsDelegate : CompositeMember
     {
-
         public DivisionsDelegate()
         {
             Members = new List<IMember>();
             Members.Add(new KhersonDelegate());
             Members.Add(new MykolaivDelegate());
             Members.Add(new OdessaDelegate());
-
         }
-
-
-
     }
 
     class OdessaDelegate : CompositeMember
@@ -233,15 +217,6 @@ namespace Patterns.Structural.Composite
             Members.Add(new ZatokaDelegate());
         }
 
-        //public override void TakeResolution(string resolution)
-        //{
-        //    Console.WriteLine($"Odessa take {resolution}");
-        //    foreach (var member in Members)
-        //    {
-        //        Console.Write(" ✅");
-        //        member.TakeResolution(resolution);
-        //    }
-        //}
     }
 
     class IzmailDelegate : CompositeMember
@@ -249,17 +224,9 @@ namespace Patterns.Structural.Composite
         public IzmailDelegate()
         {
             Members = new List<IMember>();
+            Members.Add(new YuzhneDelegate());
+            Members.Add(new ZatokaDelegate());
         }
-
-        //public override void TakeResolution(string resolution)
-        //{
-        //    Console.WriteLine($"Izmail take {resolution}");
-        //    foreach (var member in Members)
-        //    {
-        //        Console.Write("✅");
-        //        member.TakeResolution(resolution);
-        //    }
-        //}
     }
 
     class YuzhneDelegate : CompositeMember
@@ -268,16 +235,6 @@ namespace Patterns.Structural.Composite
         {
             Members = new List<IMember>();
         }
-
-        //public override void TakeResolution(string resolution)
-        //{
-        //    Console.WriteLine($"Yuzhne take {resolution}");
-        //    foreach (var member in Members)
-        //    {
-        //        Console.Write("✅");
-        //        member.TakeResolution(resolution);
-        //    }
-        //}
     }
 
     class ZatokaDelegate : CompositeMember
@@ -286,16 +243,6 @@ namespace Patterns.Structural.Composite
         {
             Members = new List<IMember>();
         }
-
-        //public override void TakeResolution(string resolution)
-        //{
-        //    Console.WriteLine($"Zatoka take {resolution}");
-        //    foreach (var member in Members)
-        //    {
-        //        Console.Write("✅");
-        //        member.TakeResolution(resolution);
-        //    }
-        //}
     }
 
 
