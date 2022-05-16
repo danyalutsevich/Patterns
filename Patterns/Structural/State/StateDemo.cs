@@ -42,10 +42,7 @@ namespace Patterns.Structural.State
 
         public void Update()
         {
-
-
-
-            state.Update();
+                state.Update();
         }
 
         public void Play()
