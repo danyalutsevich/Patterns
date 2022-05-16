@@ -12,8 +12,8 @@ namespace Patterns
         static void Main(string[] args)
         {
 
-            Console.OutputEncoding = System.Text.Encoding.UTF8;      
-            
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
             #region Singleton
 
             //// private ctor blocks creation
@@ -82,7 +82,13 @@ namespace Patterns
 
             #region Composite
 
-            Patterns.Structural.Composite.CompositeDemo.Show();
+            //Patterns.Structural.Composite.CompositeDemo.Show();
+
+            #endregion
+
+            #region State
+
+            Patterns.Structural.State.StateDemo.Show();
 
             #endregion
 
