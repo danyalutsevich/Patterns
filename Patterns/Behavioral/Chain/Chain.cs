@@ -55,7 +55,7 @@ namespace Patterns.Behavioral.Chain
         public Manipulation Next { get; set; }
 
         public Manipulation SetNext(Manipulation next)
-        {
+        {   
             Next = next;
             return Next;
         }
