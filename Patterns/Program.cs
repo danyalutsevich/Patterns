@@ -88,7 +88,13 @@ namespace Patterns
 
             #region State
 
-            Patterns.Structural.State.StateDemo.Show();
+            // Patterns.Structural.State.StateDemo.Show();
+
+            #endregion
+
+            #region Chain
+
+            Patterns.Behavioral.Chain.ChainDemo.Show();
 
             #endregion
 
